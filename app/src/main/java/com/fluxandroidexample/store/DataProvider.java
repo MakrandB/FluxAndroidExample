@@ -2,7 +2,6 @@ package com.fluxandroidexample.store;
 
 import com.fluxandroidexample.model.*;
 
-
 import io.realm.*;
 
 /**
@@ -16,10 +15,20 @@ public class DataProvider {
         mRealm = realm;
     }
 
+    /**
+     * Gets the Contact List
+     *
+     * @return RealmResults list
+     */
     RealmResults<Contact> getContactList() {
         return mRealm.where(Contact.class).findAll();
     }
 
+    /**
+     * Adds new contact to DB
+     *
+     * @param contact contact to be added
+     */
     void addContact(Contact contact) {
         mRealm.beginTransaction();
         mRealm.copyToRealm(contact);

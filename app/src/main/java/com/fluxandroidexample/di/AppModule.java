@@ -49,7 +49,7 @@ public class AppModule {
     }
 
     @Provides
-    public Store providesStore() {
+    public IStore providesStore() {
         return new Store(providesBus(), providesStoreActionCreator(), new DataProvider
                 (Realm.getDefaultInstance()));
     }

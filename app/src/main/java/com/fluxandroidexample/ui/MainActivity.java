@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //Dependencies to be injected
     @Inject
-    Store mStore;
+    IStore mStore;
     @Inject
     UserActionCreator mUserActionCreator;
     @Inject
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     /**
-     * Refreshes the Ui
+     * Refreshes the UI
      *
      * @param contactsList updated contact list
      */

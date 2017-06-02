@@ -43,6 +43,9 @@ class ContactRecyclerViewAdapter extends RecyclerView.Adapter<ContactRecyclerVie
         notifyDataSetChanged();
     }
 
+    /**
+     * View holder for the Recycler view
+     */
     class ViewHolder extends RecyclerView.ViewHolder {
         private TextView mTvContactName;
         private TextView mTvContactNumber;

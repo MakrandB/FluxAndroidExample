@@ -4,8 +4,6 @@ import com.fluxandroidexample.actionHandler.*;
 import com.fluxandroidexample.model.*;
 import com.squareup.otto.*;
 
-import java.util.*;
-
 import javax.inject.*;
 
 import io.realm.*;
@@ -13,9 +11,8 @@ import io.realm.*;
 /**
  * The store
  */
-public class Store {
+public class Store implements IStore {
     private StoreActionCreator mStoreActionCreator;
-    private List<Contact> mContacts = new ArrayList<>();
     private DataProvider mDataProvider;
 
     @Inject
