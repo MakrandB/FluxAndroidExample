@@ -33,6 +33,6 @@ public class Store {
     public void observeUserActionEvent(UserActionEvent event) {
         Contact contact = event.getUserActionData();
         mDataProvider.addContact(contact);
-        mStoreActionCreator.emitStoreChangeEvent(new StoreChangeEvent(getContactList()));
+        mStoreActionCreator.emitStoreChangeEvent(getContactList());
     }
 }

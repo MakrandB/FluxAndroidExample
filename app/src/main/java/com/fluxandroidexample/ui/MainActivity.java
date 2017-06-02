@@ -69,8 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_save:
                 if (mAddContactDialog != null && mAddContactDialog.isShowing()) {
                     if (mAddContactDialog.getEnteredContact() != null) {
-                        mUserActionCreator.emitUserActionEvent(new UserActionEvent
-                                (mAddContactDialog.getEnteredContact()));
+                        mUserActionCreator.emitUserActionEvent(mAddContactDialog.getEnteredContact());
                         mAddContactDialog.dismiss();
                     }
                 }

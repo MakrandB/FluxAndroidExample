@@ -1,8 +1,11 @@
 package com.fluxandroidexample.actionHandler;
 
 import com.fluxandroidexample.dispatcher.*;
+import com.fluxandroidexample.model.*;
 
 import javax.inject.*;
+
+import io.realm.*;
 
 /**
  * Used for creating the store change actions
@@ -16,7 +19,7 @@ public class StoreActionCreator {
         mDispatcher = dispatcher;
     }
 
-    public void emitStoreChangeEvent(IStoreChangeEvent storeChangeEvent) {
-        mDispatcher.dispatch(storeChangeEvent);
+    public void emitStoreChangeEvent(RealmResults<Contact> contacts) {
+        mDispatcher.dispatch(new StoreChangeEvent(contacts));
     }
 }

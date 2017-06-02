@@ -1,6 +1,7 @@
 package com.fluxandroidexample.actionHandler;
 
 import com.fluxandroidexample.dispatcher.*;
+import com.fluxandroidexample.model.*;
 
 import javax.inject.*;
 
@@ -16,7 +17,12 @@ public class UserActionCreator {
         mDispatcher = dispatcher;
     }
 
-    public void emitUserActionEvent(IUserActionEvent event) {
-        mDispatcher.dispatch(event);
+    /**
+     * Published  the user event
+     *
+     * @param contact the contact information
+     */
+    public void emitUserActionEvent(Contact contact) {
+        mDispatcher.dispatch(new UserActionEvent(contact));
     }
 }
