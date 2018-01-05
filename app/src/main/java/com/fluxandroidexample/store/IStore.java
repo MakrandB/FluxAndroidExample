@@ -2,7 +2,7 @@ package com.fluxandroidexample.store;
 
 import com.fluxandroidexample.model.*;
 
-import io.realm.*;
+import java.util.*;
 
 /**
  * Parent interface of the store
@@ -14,5 +14,5 @@ public interface IStore {
      *
      * @return contact List
      */
-    RealmResults<Contact> getContactList();
+    List<Contact> getContactList();
 }

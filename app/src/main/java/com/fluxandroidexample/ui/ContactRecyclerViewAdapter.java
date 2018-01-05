@@ -8,16 +8,16 @@ import android.widget.*;
 import com.fluxandroidexample.*;
 import com.fluxandroidexample.model.*;
 
-import io.realm.*;
+import java.util.*;
 
 /**
  * RecyclerView Adapter
  */
 class ContactRecyclerViewAdapter extends RecyclerView.Adapter<ContactRecyclerViewAdapter.ViewHolder> {
 
-    private RealmResults<Contact> mContactList;
+    private List<Contact> mContactList;
 
-    ContactRecyclerViewAdapter(RealmResults<Contact> contacts) {
+    ContactRecyclerViewAdapter(List<Contact> contacts) {
         this.mContactList = contacts;
     }
 
@@ -38,7 +38,7 @@ class ContactRecyclerViewAdapter extends RecyclerView.Adapter<ContactRecyclerVie
         return mContactList.size();
     }
 
-    void refreshData(RealmResults<Contact> contactsList) {
+    void refreshData(List<Contact> contactsList) {
         mContactList = contactsList;
         notifyDataSetChanged();
     }

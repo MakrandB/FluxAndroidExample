@@ -9,5 +9,5 @@ import io.realm.*;
 /**
  */
 public interface IStoreChangeEvent extends IEvent {
-    RealmResults<Contact> getCurrentState();
+    List<Contact> getCurrentState();
 }

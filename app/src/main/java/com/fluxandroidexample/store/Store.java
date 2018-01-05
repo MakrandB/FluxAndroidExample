@@ -1,28 +1,34 @@
 package com.fluxandroidexample.store;
 
 import com.fluxandroidexample.actionHandler.*;
+import com.fluxandroidexample.di.*;
 import com.fluxandroidexample.model.*;
 import com.squareup.otto.*;
 
-import javax.inject.*;
+import java.util.*;
 
-import io.realm.*;
+import javax.inject.*;
 
 /**
  * The store
  */
 public class Store implements IStore {
-    private StoreActionCreator mStoreActionCreator;
-    private DataProvider mDataProvider;
 
     @Inject
-    public Store(Bus bus, StoreActionCreator storeActionCreator, DataProvider dataProvider) {
-        mStoreActionCreator = storeActionCreator;
-        bus.register(this);
-        mDataProvider = dataProvider;
+    public DataProvider mDataProvider;
+    @Inject
+    public Bus mBus;
+    @Inject
+    public StoreActionCreator mStoreActionCreator;
+
+    public Store() {
+        DaggerAppComponent.builder().appModule(AppModule.getInstance())
+                .build().inject(this);
+        mBus.register(this);
     }
 
-    public RealmResults<Contact> getContactList() {
+    @Override
+    public List<Contact> getContactList() {
         return mDataProvider.getContactList();
     }
 

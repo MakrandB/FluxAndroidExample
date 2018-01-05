@@ -29,7 +29,7 @@ public class DataProvider {
      *
      * @param contact contact to be added
      */
-    void addContact(Contact contact) {
+    public void addContact(Contact contact) {
         mRealm.beginTransaction();
         mRealm.copyToRealm(contact);
         mRealm.commitTransaction();

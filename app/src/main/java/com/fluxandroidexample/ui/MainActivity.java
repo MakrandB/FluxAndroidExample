@@ -13,6 +13,8 @@ import com.fluxandroidexample.model.*;
 import com.fluxandroidexample.store.*;
 import com.squareup.otto.*;
 
+import java.util.*;
+
 import javax.inject.*;
 
 import io.realm.*;
@@ -55,7 +57,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Subscribe
     public void onStoreDataChanged(StoreChangeEvent event) {
-        Toast.makeText(this, "New contact added successfully", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "New contact added successfully", Toast.LENGTH_SHORT)
+                .show();
         refreshUi(event.getCurrentState());
     }
 
@@ -69,7 +72,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn_save:
                 if (mAddContactDialog != null && mAddContactDialog.isShowing()) {
                     if (mAddContactDialog.getEnteredContact() != null) {
-                        mUserActionCreator.emitUserActionEvent(mAddContactDialog.getEnteredContact());
+                        mUserActionCreator
+                                .emitUserActionEvent(mAddContactDialog.getEnteredContact());
                         mAddContactDialog.dismiss();
                     }
                 }
@@ -82,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      *
      * @param contactsList updated contact list
      */
-    private void refreshUi(RealmResults<Contact> contactsList) {
+    private void refreshUi(List<Contact> contactsList) {
         mRecyclerViewAdapter.refreshData(contactsList);
     }
 }

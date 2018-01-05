@@ -1,7 +1,6 @@
 package com.fluxandroidexample.di;
 
 import com.fluxandroidexample.actionHandler.*;
-import com.fluxandroidexample.app.*;
 import com.fluxandroidexample.dispatcher.*;
 import com.fluxandroidexample.store.*;
 import com.squareup.otto.*;
@@ -18,7 +17,7 @@ public class AppModule {
     private static final Bus sBus = new Bus();
     private static AppModule sAppModule;
 
-    private AppModule() {
+    public AppModule() {
     }
 
     /**
@@ -49,9 +48,13 @@ public class AppModule {
     }
 
     @Provides
+    public DataProvider providesDataProvider() {
+        return new DataProvider(Realm.getDefaultInstance());
+    }
+
+    @Provides
     public IStore providesStore() {
-        return new Store(providesBus(), providesStoreActionCreator(), new DataProvider
-                (Realm.getDefaultInstance()));
+        return new Store();
     }
 
     @Provides

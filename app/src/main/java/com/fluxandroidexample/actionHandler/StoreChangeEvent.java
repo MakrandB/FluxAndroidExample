@@ -4,21 +4,19 @@ import com.fluxandroidexample.model.*;
 
 import java.util.*;
 
-import io.realm.*;
-
 /**
  * Used for notifying the store changes
  */
 public class StoreChangeEvent implements IStoreChangeEvent {
 
-    private RealmResults<Contact> contacts;
+    private List<Contact> contacts;
 
-    public StoreChangeEvent(RealmResults<Contact> contacts) {
+    public StoreChangeEvent(List<Contact> contacts) {
         this.contacts = contacts;
     }
 
     @Override
-    public RealmResults<Contact> getCurrentState() {
+    public List<Contact> getCurrentState() {
         return this.contacts;
     }
 }
